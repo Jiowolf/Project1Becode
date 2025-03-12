@@ -88,7 +88,8 @@ for(let i = 0; i < collection.length; i++){
 
     const SELECTmain = document.querySelector("main");
     const newSection = document.createElement("section");
-    newSection.classList.add("collection");
+    // newSection.classList.add("collection"+ i);
+    newSection.id = "collection"+ i;
     SELECTmain.appendChild(newSection);
 
     const newImg = document.createElement("img");

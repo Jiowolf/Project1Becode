@@ -1,0 +1,20 @@
+header{
+    background-color: blue;
+    padding: 15px;
+}
+
+
+
+@media (max-width: 480px){
+    .image{
+        width: 400px;
+    }
+}
+
+@media (480px < width < 1024px){
+
+}
+
+@media (min-width :1024px){
+
+}
