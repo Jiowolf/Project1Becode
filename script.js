@@ -84,39 +84,56 @@ const collection = [
 ]
 
 
+
+
 for(let i = 0; i < collection.length; i++){
 
-    const SELECTmain = document.querySelector("main");
-    const newSection = document.createElement("section");
-    // newSection.classList.add("collection"+ i);
-    newSection.id = "collection"+ i;
-    SELECTmain.appendChild(newSection);
+    const SELECT_MAIN = document.querySelector("main");
+    const NEW_SECTION = document.createElement("section");
+    NEW_SECTION.className = collection[i].genre;
+    // NEW_SECTION.classList.add("collection"+ i);
+    NEW_SECTION.id = "collection"+ i;
+    SELECT_MAIN.appendChild(NEW_SECTION);
 
-    const newImg = document.createElement("img");
-    newImg.className = "image";
+    const NEW_IMG = document.createElement("img");
+    NEW_IMG.className = "image";
     const img = collection[i].picture;
-    newImg.src = img;
-    newSection.appendChild(newImg);
+    NEW_IMG.src = img;
+    NEW_SECTION.appendChild(NEW_IMG);
 
-    const newH2 = document.createElement("h2");
+    const NEW_H2 = document.createElement("h2");
     const h2 = collection[i].name;
-    newH2.innerHTML = h2;
-    newSection.appendChild(newH2);
+    NEW_H2.innerHTML = h2;
+    NEW_SECTION.appendChild(NEW_H2);
 
-    const newH3 = document.createElement("h3");
+    const NEW_H3 = document.createElement("h3");
     const h3 = collection[i].editeur;
-    newH3.innerHTML = h3;
-    newSection.appendChild(newH3);
+    NEW_H3.innerHTML = h3;
+    NEW_SECTION.appendChild(NEW_H3);
 
-    const newGenre =document.createElement("p");
-    newGenre.className = "genre";
+    const NEW_GENRE =document.createElement("p");
+    NEW_GENRE.className = "genre";
     const genre = collection[i].genre;
-    newGenre.innerHTML = genre;
-    newSection.appendChild(newGenre);
+    NEW_GENRE.innerHTML = genre;
+    NEW_SECTION.appendChild(NEW_GENRE);
 
-    const newDate = document.createElement("p");
-    newDate.className = "date";
+    const NEW_DATE = document.createElement("p");
+    NEW_DATE.className = "date";
     const date = collection[i].realseDate;
-    newDate.innerHTML = date;
-    newSection.appendChild(newDate);
-}
+    NEW_DATE.innerHTML = date;
+    NEW_SECTION.appendChild(NEW_DATE);
+
+    const NEW_BUTTON = document.createElement("button");
+    NEW_BUTTON.setAttribute("onclick","makeMeOrphan(this)");
+    NEW_BUTTON.setAttribute("data-NUMBER",`${i}`);
+    NEW_BUTTON.className = "delete-button";
+    NEW_BUTTON.innerHTML = "␡";
+    NEW_SECTION.appendChild(NEW_BUTTON);
+};
+
+
+function makeMeOrphan(findThis){
+    const INDEX_NUM = findThis.getAttribute("data-NUMBER");
+    const PAPA = document.getElementById(`collection${INDEX_NUM}`);
+    PAPA.remove();
+};
