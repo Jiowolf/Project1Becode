@@ -111,10 +111,12 @@ for(let i = 0; i < collection.length; i++){
     NEW_H3.innerHTML = h3;
     NEW_SECTION.appendChild(NEW_H3);
 
-    const NEW_GENRE =document.createElement("p");
+    const NEW_GENRE =document.createElement("button");
     NEW_GENRE.className = "genre";
-    const genre = collection[i].genre;
-    NEW_GENRE.innerHTML = genre;
+    NEW_GENRE.setAttribute("onclick","hideOther(this)");
+    const GENRE = collection[i].genre;
+    NEW_GENRE.setAttribute("data-genre",`${GENRE}`);
+    NEW_GENRE.innerHTML = GENRE;
     NEW_SECTION.appendChild(NEW_GENRE);
 
     const NEW_DATE = document.createElement("p");
@@ -137,3 +139,24 @@ function makeMeOrphan(findThis){
     const PAPA = document.getElementById(`collection${INDEX_NUM}`);
     PAPA.remove();
 };
+
+// function sortOf(findThis){
+//     const SELECT_DIV = document.getElementById("important");
+//     const GENRE_ATTRIBUT = findThis.getAttribute("data-genre");
+//     const SELECT_GENRE = document.getElementsByClassName(`${GENRE_ATTRIBUT}`)
+//     SELECT_DIV.appendChild(SELECT_GENRE)
+// }
+
+
+function hideOther(findThis){
+    const DATA_GENRE = findThis.getAttribute("data-genre")
+    const MOM = document.getElementsByClassName(`${DATA_GENRE}`);
+    const INDEX_GENRE = findThis.getAttribute("data-genre");
+    const MOM_GENRE = MOM.className
+
+    if(MOM_GENRE !== INDEX_GENRE){
+        MOM.style.display = "none";
+    }
+    
+    
+}

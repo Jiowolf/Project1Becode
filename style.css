@@ -29,9 +29,10 @@ h2{
 .genre{
 
     width: max-content;
-    border: 1px solid;
-    background-color: #bfe2f3;
+    /* border: 1px solid;
+    background-color: #bfe2f3; */
     margin: 5px;
+    cursor: pointer;
 }
 
 h3{
@@ -66,6 +67,7 @@ h3{
         width: auto;
         align-content: start;
         height: fit-content;
+        justify-content: start;
     }
 
 
@@ -118,6 +120,7 @@ h3{
         width: 45%;
         align-content: start;
         height: fit-content;
+        justify-content: start;
     }
 
     h1{
