@@ -150,12 +150,23 @@ function makeMeOrphan(findThis){
 
 function hideOther(findThis){
     const DATA_GENRE = findThis.getAttribute("data-genre")
-    const MOM = document.getElementsByClassName(`${DATA_GENRE}`);
-    const INDEX_GENRE = findThis.getAttribute("data-genre");
-    const MOM_GENRE = MOM.className
+    const MOM = document.querySelectorAll(`.${DATA_GENRE}`);
+    // const INDEX_GENRE = findThis.getAttribute("data-genre");
+    // const MOM_GENRE = `${DATA_GENRE}`
 
-    if(MOM_GENRE !== INDEX_GENRE){
-        MOM.style.display = "none";
+    // const SELECT_MAIN = document.querySelector("main");
+
+    const SELECT = document.getElementsByClassName(`${DATA_GENRE}`)
+    const SELECT_IMPORTANT = document.getElementById(`important`)
+
+    console.log(SELECT)
+    console.log(SELECT_IMPORTANT)
+    // SELECT_IMPORTANT.appendChild(SELECT)
+
+    for(let i = 0; i < MOM.length; i++){
+        // SELECT_MAIN.firstChild.style.display = "none";
+        SELECT_IMPORTANT.appendChild(MOM[i])
+        
     }
     
     
